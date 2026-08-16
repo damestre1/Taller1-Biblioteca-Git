@@ -2,12 +2,22 @@ package com.mycompany.biblioteca;
 
 public class Person {
 
+    protected String id;
     protected String name;
-    protected String document;
+    protected String phone;
 
-    public Person(String name, String document) {
+    public Person(String id, String name, String phone) {
+        this.id = id;
         this.name = name;
-        this.document = document;
+        this.phone = phone;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -18,11 +28,11 @@ public class Person {
         this.name = name;
     }
 
-    public String getDocument() {
-        return document;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDocument(String document) {
-        this.document = document;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
