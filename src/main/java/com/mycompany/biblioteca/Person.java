@@ -2,27 +2,27 @@ package com.mycompany.biblioteca;
 
 public class Person {
 
-    protected String nombre;
-    protected String documento;
+    protected String name;
+    protected String document;
 
-    public Person(String nombre, String documento) {
-        this.nombre = nombre;
-        this.documento = documento;
+    public Person(String name, String document) {
+        this.name = name;
+        this.document = document;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDocumento() {
-        return documento;
+    public String getDocument() {
+        return document;
     }
 
-    public void setDocumento(String documento) {
-        this.documento = documento;
+    public void setDocument(String document) {
+        this.document = document;
     }
 }
