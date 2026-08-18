@@ -52,4 +52,25 @@ static void listCustomers() {
         System.out.println("--------------------");
     }
 }
+    static void searchCustomer() {
+
+        System.out.print("Ingresar el cliente por id : ");
+        String id = sc.nextLine();
+
+        for (Customer customer : customers) {
+
+            if (customer.getId().equals(id)) {
+
+                System.out.println("Cliente Encontrado:");
+                System.out.println("ID: " + customer.getId());
+                System.out.println("Nombre: " + customer.getName());
+                System.out.println("Telefono: " + customer.getPhone());
+                System.out.println("Email: " + customer.getEmail());
+
+                return;
+            }
+        }
+
+        System.out.println("El Cliente No Fue Encontrado.");
+    }
 }
