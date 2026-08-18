@@ -32,6 +32,24 @@ public class Main {
 
         customers.add(customer);
 
-        System.out.println("Customer created successfully.");
+        System.out.println("cliente creado exitosamente");
     }
+
+static void listCustomers() {
+
+    if (customers.isEmpty()) {
+        System.out.println("No ha sido registrafo el cliente");
+        return;
+    }
+
+    System.out.println("=== Lista de clientes ===");
+
+    for (Customer customer : customers) {
+        System.out.println("ID: " + customer.getId());
+        System.out.println("Nombre: " + customer.getName());
+        System.out.println("Telefono: " + customer.getPhone());
+        System.out.println("Email: " + customer.getEmail());
+        System.out.println("--------------------");
+    }
+}
 }
