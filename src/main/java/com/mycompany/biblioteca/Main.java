@@ -102,4 +102,22 @@ static void listCustomers() {
 
         System.out.println("El cliente no fue encontrado.");
     }
+    static void deleteCustomer() {
+
+        System.out.print("Ingrese el ID del cliente que desea eliminar: ");
+        String id = sc.nextLine();
+
+        for (int i = 0; i < customers.size(); i++) {
+
+            if (customers.get(i).getId().equals(id)) {
+
+                customers.remove(i);
+
+                System.out.println("Cliente eliminado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El cliente no fue encontrado.");
+    }
 }
