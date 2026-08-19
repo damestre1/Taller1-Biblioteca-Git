@@ -141,4 +141,21 @@ static void listCustomers() {
 
         System.out.println("Libro creado exitosamente.");
     }
+    static void listBooks() {
+
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados.");
+            return;
+        }
+
+        System.out.println("=== Lista de libros ===");
+
+        for (Libro libro : libros) {
+            System.out.println("Código: " + libro.getCode());
+            System.out.println("Título: " + libro.getTitle());
+            System.out.println("Autor: " + libro.getAuthor());
+            System.out.println("Género: " + libro.getGenre());
+            System.out.println("--------------------");
+        }
+    }
 }
