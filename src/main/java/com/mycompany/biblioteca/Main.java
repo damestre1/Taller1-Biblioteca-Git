@@ -179,4 +179,33 @@ static void listCustomers() {
 
         System.out.println("El libro no fue encontrado.");
     }
+    static void updateBook() {
+
+        System.out.print("Ingrese el código del libro que desea actualizar: ");
+        String code = sc.nextLine();
+
+        for (Libro libro : libros) {
+
+            if (libro.getCode().equals(code)) {
+
+                System.out.print("Ingrese el nuevo título: ");
+                String title = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo autor: ");
+                String author = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo género: ");
+                String genre = sc.nextLine();
+
+                libro.setTitle(title);
+                libro.setAuthor(author);
+                libro.setGenre(genre);
+
+                System.out.println("Libro actualizado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
+    }
 }
