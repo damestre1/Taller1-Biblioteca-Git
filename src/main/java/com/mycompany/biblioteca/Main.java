@@ -7,6 +7,7 @@ public class Main {
 
     static ArrayList<Customer> customers = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
+    static ArrayList<Libro> libros = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -119,5 +120,110 @@ static void listCustomers() {
         }
 
         System.out.println("El cliente no fue encontrado.");
+    }
+    static void createBook() {
+
+        System.out.print("Ingrese código del libro: ");
+        String code = sc.nextLine();
+
+        System.out.print("Ingrese título del libro: ");
+        String title = sc.nextLine();
+
+        System.out.print("Ingrese autor del libro: ");
+        String author = sc.nextLine();
+
+        System.out.print("Ingrese género del libro: ");
+        String genre = sc.nextLine();
+
+        Libro libro = new Libro(code, title, author, genre);
+
+        libros.add(libro);
+
+        System.out.println("Libro creado exitosamente.");
+    }
+    static void listBooks() {
+
+        if (libros.isEmpty()) {
+            System.out.println("No hay libros registrados.");
+            return;
+        }
+
+        System.out.println("=== Lista de libros ===");
+
+        for (Libro libro : libros) {
+            System.out.println("Código: " + libro.getCode());
+            System.out.println("Título: " + libro.getTitle());
+            System.out.println("Autor: " + libro.getAuthor());
+            System.out.println("Género: " + libro.getGenre());
+            System.out.println("--------------------");
+        }
+    }
+    static void searchBook() {
+
+        System.out.print("Ingrese el código del libro a buscar: ");
+        String code = sc.nextLine();
+
+        for (Libro libro : libros) {
+
+            if (libro.getCode().equals(code)) {
+
+                System.out.println("Libro encontrado:");
+                System.out.println("Código: " + libro.getCode());
+                System.out.println("Título: " + libro.getTitle());
+                System.out.println("Autor: " + libro.getAuthor());
+                System.out.println("Género: " + libro.getGenre());
+
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
+    }
+    static void updateBook() {
+
+        System.out.print("Ingrese el código del libro que desea actualizar: ");
+        String code = sc.nextLine();
+
+        for (Libro libro : libros) {
+
+            if (libro.getCode().equals(code)) {
+
+                System.out.print("Ingrese el nuevo título: ");
+                String title = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo autor: ");
+                String author = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo género: ");
+                String genre = sc.nextLine();
+
+                libro.setTitle(title);
+                libro.setAuthor(author);
+                libro.setGenre(genre);
+
+                System.out.println("Libro actualizado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
+    }
+    static void deleteBook() {
+
+        System.out.print("Ingrese el código del libro que desea eliminar: ");
+        String code = sc.nextLine();
+
+        for (int i = 0; i < libros.size(); i++) {
+
+            if (libros.get(i).getCode().equals(code)) {
+
+                libros.remove(i);
+
+                System.out.println("Libro eliminado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
     }
 }
