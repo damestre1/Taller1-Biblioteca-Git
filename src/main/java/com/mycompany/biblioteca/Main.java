@@ -73,4 +73,33 @@ static void listCustomers() {
 
         System.out.println("El Cliente No Fue Encontrado.");
     }
+    static void updateCustomer() {
+
+        System.out.print("Ingrese el ID del cliente que desea actualizar: ");
+        String id = sc.nextLine();
+
+        for (Customer customer : customers) {
+
+            if (customer.getId().equals(id)) {
+
+                System.out.print("Ingrese el nuevo nombre: ");
+                String name = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo telefono: ");
+                String phone = sc.nextLine();
+
+                System.out.print("Ingrese el nuevo email: ");
+                String email = sc.nextLine();
+
+                customer.setName(name);
+                customer.setPhone(phone);
+                customer.setEmail(email);
+
+                System.out.println("Cliente actualizado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El cliente no fue encontrado.");
+    }
 }
