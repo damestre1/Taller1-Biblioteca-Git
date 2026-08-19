@@ -208,4 +208,22 @@ static void listCustomers() {
 
         System.out.println("El libro no fue encontrado.");
     }
+    static void deleteBook() {
+
+        System.out.print("Ingrese el código del libro que desea eliminar: ");
+        String code = sc.nextLine();
+
+        for (int i = 0; i < libros.size(); i++) {
+
+            if (libros.get(i).getCode().equals(code)) {
+
+                libros.remove(i);
+
+                System.out.println("Libro eliminado exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
+    }
 }
