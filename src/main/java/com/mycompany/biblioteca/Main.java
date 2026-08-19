@@ -7,6 +7,7 @@ public class Main {
 
     static ArrayList<Customer> customers = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
+    static ArrayList<Libro> libros = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -119,5 +120,25 @@ static void listCustomers() {
         }
 
         System.out.println("El cliente no fue encontrado.");
+    }
+    static void createBook() {
+
+        System.out.print("Ingrese código del libro: ");
+        String code = sc.nextLine();
+
+        System.out.print("Ingrese título del libro: ");
+        String title = sc.nextLine();
+
+        System.out.print("Ingrese autor del libro: ");
+        String author = sc.nextLine();
+
+        System.out.print("Ingrese género del libro: ");
+        String genre = sc.nextLine();
+
+        Libro libro = new Libro(code, title, author, genre);
+
+        libros.add(libro);
+
+        System.out.println("Libro creado exitosamente.");
     }
 }
