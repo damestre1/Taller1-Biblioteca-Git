@@ -8,7 +8,7 @@ public class Main {
     static ArrayList<Customer> customers = new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     static ArrayList<Libro> libros = new ArrayList<>();
-
+    static ArrayList<Prestamo> prestamos = new ArrayList<>();
     public static void main(String[] args) {
 
         // Aquí irá el menú (Fase 8)
@@ -225,5 +225,54 @@ static void listCustomers() {
         }
 
         System.out.println("El libro no fue encontrado.");
+    }
+    static void createLoan() {
+
+        System.out.print("Ingrese el ID del cliente: ");
+        String customerId = sc.nextLine();
+
+        Customer customerEncontrado = null;
+
+        for (Customer customer : customers) {
+            if (customer.getId().equals(customerId)) {
+                customerEncontrado = customer;
+                break;
+            }
+        }
+
+        if (customerEncontrado == null) {
+            System.out.println("El cliente no fue encontrado.");
+            return;
+        }
+
+        System.out.print("Ingrese el código del libro: ");
+        String bookCode = sc.nextLine();
+
+        Libro libroEncontrado = null;
+
+        for (Libro libro : libros) {
+            if (libro.getCode().equals(bookCode)) {
+                libroEncontrado = libro;
+                break;
+            }
+        }
+
+        if (libroEncontrado == null) {
+            System.out.println("El libro no fue encontrado.");
+            return;
+        }
+
+        System.out.print("Ingrese la fecha del préstamo: ");
+        String fechaPrestamo = sc.nextLine();
+
+        Prestamo prestamo = new Prestamo(
+                customerEncontrado,
+                libroEncontrado,
+                fechaPrestamo
+        );
+
+        prestamos.add(prestamo);
+
+        System.out.println("Préstamo registrado exitosamente.");
     }
 }
