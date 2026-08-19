@@ -275,4 +275,31 @@ static void listCustomers() {
 
         System.out.println("Préstamo registrado exitosamente.");
     }
+    static void returnLoan() {
+
+        System.out.print("Ingrese el ID del cliente: ");
+        String customerId = sc.nextLine();
+
+        System.out.print("Ingrese el código del libro: ");
+        String bookCode = sc.nextLine();
+
+        for (Prestamo prestamo : prestamos) {
+
+            if (prestamo.getCustomer().getId().equals(customerId)
+                    && prestamo.getLibro().getCode().equals(bookCode)
+                    && !prestamo.isDevuelto()) {
+
+                System.out.print("Ingrese la fecha de devolución: ");
+                String fechaDevolucion = sc.nextLine();
+
+                prestamo.setFechaDevolucion(fechaDevolucion);
+                prestamo.setDevuelto(true);
+
+                System.out.println("Préstamo devuelto exitosamente.");
+                return;
+            }
+        }
+
+        System.out.println("El préstamo no fue encontrado o ya fue devuelto.");
+    }
 }
