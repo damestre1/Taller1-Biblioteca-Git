@@ -302,4 +302,33 @@ static void listCustomers() {
 
         System.out.println("El préstamo no fue encontrado o ya fue devuelto.");
     }
+    static void listLoans() {
+
+        if (prestamos.isEmpty()) {
+            System.out.println("No hay préstamos registrados.");
+            return;
+        }
+
+        System.out.println("=== Lista de préstamos ===");
+
+        for (Prestamo prestamo : prestamos) {
+
+            System.out.println("Cliente ID: " + prestamo.getCustomer().getId());
+            System.out.println("Cliente: " + prestamo.getCustomer().getName());
+
+            System.out.println("Libro código: " + prestamo.getLibro().getCode());
+            System.out.println("Libro: " + prestamo.getLibro().getTitle());
+
+            System.out.println("Fecha de préstamo: " + prestamo.getFechaPrestamo());
+
+            if (prestamo.isDevuelto()) {
+                System.out.println("Estado: Devuelto");
+                System.out.println("Fecha de devolución: " + prestamo.getFechaDevolucion());
+            } else {
+                System.out.println("Estado: Prestado");
+            }
+
+            System.out.println("--------------------");
+        }
+    }
 }
