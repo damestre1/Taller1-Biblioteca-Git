@@ -158,4 +158,25 @@ static void listCustomers() {
             System.out.println("--------------------");
         }
     }
+    static void searchBook() {
+
+        System.out.print("Ingrese el código del libro a buscar: ");
+        String code = sc.nextLine();
+
+        for (Libro libro : libros) {
+
+            if (libro.getCode().equals(code)) {
+
+                System.out.println("Libro encontrado:");
+                System.out.println("Código: " + libro.getCode());
+                System.out.println("Título: " + libro.getTitle());
+                System.out.println("Autor: " + libro.getAuthor());
+                System.out.println("Género: " + libro.getGenre());
+
+                return;
+            }
+        }
+
+        System.out.println("El libro no fue encontrado.");
+    }
 }
